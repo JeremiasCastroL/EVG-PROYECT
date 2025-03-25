@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  /* color: #646cff; */
+  text-decoration: inherit;
+}
+a:hover {
+  /* color: #535bf2; */
+}
+
+.bef {
+  position: relative;
+   border: none;
+
+  /* background: transparent; */
+}
+
+.bef::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 2;
+  height: 100%;
+  backdrop-filter: blur(1px);
+
+}
+
+.outline-xd {
+   outline: 1px solid #555;
+   outline-offset: 1px;
+}
+
+body {
+  max-width: 1500px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background-color:#a00;
+  /* min-height: 100vh; */
+  /* display: grid; */
+  grid-template-rows: 80px 1fr 120px;
+  background-color: #f9f9f9;
+}
+
+.opacity:hover {
+  /* background-color: #a00; */
+  opacity: 90 !important
+}
+
+.Header {
+  background-color: #535bf2;
+  width: 100vw;
+  height: 90px;
+}
+
+/* Nav Second */
+.burger {
+  position: relative;
+  width: 20px;
+  height: 15px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.burger input {
+  display: none;
+}
+
+/* <style> */
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: #0007;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 0px;
+}
+.input_new {
+  border: none;
+  border-bottom: 1px solid #444a;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 15px;
+  left: 0px;
+}
+
+.snap_cont {
+     scroll-snap-type: x 
+     mandatory;
+     scroll-behavior: smooth;
+}
+
+
+.snap {
+scroll-snap-align: center;
+}
