@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Blog ejemplo",
+        "content": "Este es un <strong>blog con negrita</strong> y <a href='https://ejemplo.com'>un enlace</a>",
+        "date": "2025-04-09",
+        "image": "img.jpg",
+        "category": "Consejos"
+    },
+    {
+        "title": "Blog ejemplo 2",
+        "content": "Este es un <strong>blog con negrita</strong> y <a href='https://ejemplo.com'>un enlace</a>",
+        "date": "2025-04-09",
+        "image": "img.jpg",
+        "category": "Consejos"
+    },
+    {
+        "title": "Blog ejemplo 3",
+        "content": "Este es un <strong>blog con negrita</strong> y <a href='https://ejemplo.com'>un enlace</a>",
+        "date": "2025-04-09",
+        "image": "img.jpg",
+        "category": "Consejos"
+    },
+    {
+        "title": "Blog ejemplo 4",
+        "content": "Este es un <strong>blog con negrita</strong> y <a href='https://ejemplo.com'>un enlace</a>",
+        "date": "2025-04-09",
+        "image": "img.jpg",
+        "category": "Consejos"
+    },
+    {
+        "title": "Blog ejemplo 5",
+        "content": "Este es un <strong>blog con negrita</strong> y <a href='https://ejemplo.com'>un enlace</a>",
+        "date": "2025-04-09",
+        "image": "img.jpg",
+        "category": "Consejos"
+    }
+]

@@ -38,7 +38,7 @@ export function NavBar(){
                 <input type="text" className=" w-[480px] bg-[#f5f5f5] h-[38px] rounded-[20px] pl-[40px] pr-[20px]" placeholder="Buscar..."/>
                 <svg className='absolute top-[100%] translate-y-[-100%] left-[11px] font-[700]' xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 -960 960 960" width="21px" fill="#5559"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
             </div>
-            <Link to="./login" className="text-[16px] pt-[1px] text-[#fff] font-[700] font-[Poppins]">Log in</Link> 
+            <Link to="/register" className="text-[16px] pt-[1px] text-[#fff] font-[700] font-[Poppins]">Log in</Link> 
             <Link className="text-[16px] pt-[1px] text-[#fff] font-[700] font-[Poppins]">Log out</Link>         
         </div>
         <div ref={window} className='absolute hidden bg-[#fff] px-[10px] py-[15px] flex-col gap-[10px] rounded-[10px] top-[105px] font-[Poppins] left-[425px]'>

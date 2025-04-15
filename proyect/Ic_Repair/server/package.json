@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server",
+    "dev": "nodemon index.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -13,13 +13,20 @@
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.2",
     "mysql": "^2.18.1",
-    "mysql2": "^3.13.0"
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.7",
+    "util": "^0.12.5",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "auto": "^11.3.0",
@@ -27,6 +34,7 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "nodemon": "^3.1.9",
     "postcss": "^8.5.3",
     "prefixer": "^0.0.3",
     "vite": "^6.2.2"
