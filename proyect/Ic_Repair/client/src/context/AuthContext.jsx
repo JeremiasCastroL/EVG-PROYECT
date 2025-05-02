@@ -44,11 +44,14 @@ export const AuthProvider = ({children}) => {
         try {
             const res = await loginRequest(user)
             console.log("login", res)
+
+            setUser(res.data); // ← Aquí marcas el usuario
+            setIsAuthenticated(true); // ← Aquí marcas como logueado
         } catch(err) {
             console.log(err)
-
+    
             const serverError = err.response?.data;
-        
+    
             if (typeof serverError === "string") {
                 setErrors([serverError]);
             } else if (Array.isArray(serverError)) {
@@ -60,6 +63,7 @@ export const AuthProvider = ({children}) => {
             }
         }
     }
+    
 
     useEffect(() => {
          if(errors.length > 0){

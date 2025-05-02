@@ -1,5 +1,7 @@
 import { createContext, useContext } from "react";
 import { registerBlogRequest } from "../api/auth";
+import { postRequest } from "../api/blog";
+import { deleteRequest } from "../api/blog";
 
 export const BlogContext = createContext();
 
@@ -23,3 +25,14 @@ export const BlogProvider = ({ children }) => {
     </BlogContext.Provider>
   );
 };
+
+
+export const deleteBlog = async (id) => {
+    try {
+      await deleteRequest(id)
+      alert("Blog eliminado con exito")
+    } catch (error) {
+      console.log(error)
+      alert("Error al eliminar el blog")
+    }
+}

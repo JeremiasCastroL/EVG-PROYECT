@@ -145,3 +145,43 @@ body {
 .snap {
 scroll-snap-align: center;
 }
+
+.floating-label {
+  position: relative;
+  /* width: 500px !important; */
+  /* max-width: 300px; */
+  /* margin: 3rem auto; */
+  /* background-color: #111; */
+}
+
+.floating-label input {
+  width: 100%;
+  padding: 1.4rem 1rem 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #5555;
+  border-radius: 0.5rem;
+  outline: none;
+  background: white;
+  box-sizing: border-box;
+}
+
+.floating-label label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem; /* mismo nivel que el texto inicial */
+  color: #888;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  padding: 0 0.2rem;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  top: 0.4rem; /* se mueve poquito arriba */
+  font-size: 0.75rem;
+  color: #111
+}
+
+
+

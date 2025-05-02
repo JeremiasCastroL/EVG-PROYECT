@@ -18,10 +18,16 @@ export function Login(){
                 ))}
             <img src="../../../public/assets/LOGO DE EVG2.png" alt="" className="h-[130px] w-[130px]"/>
             <h4 className="font-[Poppins] text-[28px] font-[800] text-center">Iniciar Sesión</h4>
-            <form onSubmit={onSubmit}>
-                <input type="email" {...register("user", {required: true})} name="user" placeholder="Email..." className="w-[100%] focus:border-[#999] focus:border-[2px] outline-none duration-100 h-[50px] px-[20px] mt-[20px] border-[1px] border-[#6669] rounded-[12px]"/>
+            <form onSubmit={onSubmit} className="relative w-[100%]">
+            <div className="floating-label w-[100%] h-[53px] mt-[20px]">
+                        <input type="email"  {...register("user", {required: true})} name="user" className="font-[Poppins] pt-[4px] w-[500px] h-[53px]" id="email"  placeholder=" "/>
+                        <label htmlFor="email" className="font-[Poppins]">Email</label>
+                    </div>
                 {errors.user && (<p className="text-[#f00]">Email is required</p>)}
-                <input type="password" {...register("pass", {required: true})} name="pass" placeholder="Password..." className="w-[100%] focus:border-[#999] focus:border-[2px] outline-none duration-100 h-[50px] px-[20px] mt-[20px] border-[1px] border-[#6669] rounded-[12px]"/>
+                <div className="floating-label w-[100%] h-[53px] mt-[20px]">
+                        <input type="password"  {...register("pass", {required: true})} name="pass" className="font-[Poppins] pt-[4px] w-[500px] h-[53px]" id="pass"  placeholder=" "/>
+                        <label htmlFor="password" className="font-[Poppins]">Contraseña</label>
+                    </div>
                 {errors.pass && (<p className="text-[#f00]">Password is required</p>)}
                 <button type="submit" className="h-[47px] bg-[#0056B3] hover:bg-[#004494] duration-150 rounded-[12px] text-[#fff] text-[17px] font-[600] w-[100%] flex justify-center items-center mt-[10px]">Iniciar Sesion</button>
             </form>

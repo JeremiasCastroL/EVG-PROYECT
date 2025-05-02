@@ -3,16 +3,25 @@ import { BarAdmin } from "../Components/adminComponents/BarAdmin";
 import { Footer } from "../Components/adminComponents/FooterAdmin";
 import { Modal } from "../Components/Modal";
 import { registerBlogRequest } from "../../api/auth"; // Asegúrate que esta función esté bien definida
+import { Link } from "react-router-dom";
 
 export function AdminBlog() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [value, setValue] = useState("");
   const [formValues, setFormValues] = useState({
     title: "",
     content: "",
     category: "",
     date: "",
   });
+
+  const handleInput = (e) => {
+    e.target.style.height = "auto"; // Reinicia el alto
+    e.target.style.height = `${e.target.scrollHeight}px`; // Ajusta al contenido
+    setValue(e.target.value);
+  };
+
 
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
@@ -69,15 +78,23 @@ export function AdminBlog() {
 
   return (
     <section className="pt-[100px] relative">
-      <BarAdmin />
       <div className="px-[140px]">
-        <h3 className="text-[40px] font-[Poppins] font-[700] text-[#000]">Blog</h3>
+              <div className="px-[0px] flex mt-[20px] gap-[10px] items-center">
+                        <Link to="/" className="font-[Poppins] text-[#111] text-[14px]">Home</Link>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        <Link to="/admin" className="font-[Poppins] text-[#111] text-[14px]">Admin</Link>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        <Link to="/admin/public" className="font-[Poppins] text-[#111] text-[14px]">Publicar</Link>  
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        <Link to="" className="font-[Poppins] text-[#111] text-[14px]">Blog</Link>   
+                    </div>
+
         <div className="mt-[50px] mb-[50px] flex flex-col items-center">
-          <h4 className="w-[100%] text-[30px] text-center font-[Poppins] font-[600]">
+          <h4 className="w-[100%] text-[34px] text-center font-[Poppins] font-[600]">
             Añadir nuevo blog
           </h4>
-          <div className="w-[60%]">
-            <form className="mt-[45px]" onSubmit={handleSubmit}>
+          <div className="w-[60%] bg-[#fff] px-[20px] mt-[30px] rounded-[10px] py-[30px]">
+            <form className="" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-[10px]">
                 <h5 className="font-[Poppins]">Título del blog</h5>
                 <input
@@ -86,23 +103,27 @@ export function AdminBlog() {
                   value={formValues.title}
                   onChange={handleChange}
                   placeholder="Ejemplo: 'Consejos para cuidar a tus gallinas'"
-                  className={`h-[60px] w-[100%] px-[25px] rounded-[14px] transition-all duration-200 ${
+                  className={`h-[60px] w-[100%] px-[25px] rounded-[10px] border-[#999] border-[1px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${
                     formValues.title ? 'bg-blue-100' : 'bg-white'
                   }`}
+                  required
                 />
               </div>
 
               <div className="flex flex-col gap-[10px] mt-[30px]">
                 <h5 className="font-[Poppins]">Contenido del blog</h5>
-                <input
+                <textarea
+                onInput={handleInput}
+                rows={1}
                   name="content"
                   type="text"
                   value={formValues.content}
                   onChange={handleChange}
                   placeholder="Ejemplo: 'La alimentación es la razón principal...'"
-                  className={`h-[60px] w-[100%] px-[25px] rounded-[14px] transition-all duration-200 ${
+                  className={`min-h-[100px] focus:outline-[#888] focus:outline-[1px] w-[100%] flex py-[20px] px-[25px] border-[#999] border-[1px] rounded-[10px] transition-all duration-200 ${
                     formValues.content ? 'bg-blue-100' : 'bg-white'
                   }`}
+                  required
                 />
               </div>
 
@@ -113,9 +134,10 @@ export function AdminBlog() {
                   type="text"
                   value={formValues.category}
                   onChange={handleChange}
-                  className={`h-[60px] w-[100%] px-[25px] rounded-[14px] transition-all duration-200 ${
-                    formValues.category ? 'bg-blue-100' : 'bg-white'
+                  className={`h-[60px] w-[100%] px-[25px] border-[1px] border-[#999] rounded-[10px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${
+                    formValues.category ? 'bg-blue-100' : 'bg-white '
                   }`}
+                  required
                 >
                     <option value="Alimentacion">Alimentación</option>
                     <option value="Gallineros">Gallineros</option>
@@ -132,6 +154,7 @@ export function AdminBlog() {
                   name="image"
                   accept="image/*"
                   onChange={handleFileChange}
+                  required
                 />
               </div>
 
@@ -142,15 +165,16 @@ export function AdminBlog() {
                   name="date"
                   value={formValues.date}
                   onChange={handleChange}
-                  className={`h-[60px] w-[100%] px-[17px] rounded-[14px] transition-all duration-200 ${
+                  className={`h-[60px] w-[100%] px-[17px] rounded-[10px] border-[#999] border-[1px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${
                     formValues.date ? 'bg-blue-100' : 'bg-white'
                   }`}
+                  required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-[100%] h-[60px] font-[Poppins] mt-[30px] text-[#fff] text-center bg-[#f90] rounded-[30px] text-[18px] font-[500]"
+                className="w-[100%] h-[60px] font-[Poppins] mt-[30px] text-[#fff] text-center hover:bg-[#f90] bg-[#f6b000] duration-200 rounded-[10px] text-[18px] font-[500]"
               >
                 Guardar Blog
               </button>

@@ -29,15 +29,34 @@ export function Register(){
                 ))}
                 <img src="../../../public/assets/LOGO DE EVG2.png" alt="" className="h-[130px] w-[130px]"/>
                 <h4 className="font-[Poppins] text-[28px] font-[800] text-center">Registrate</h4>
-                <form onSubmit={onSubmit}>
-                    <input type="text" {...register("name", {required: true})} name="name" placeholder="Nombre..." className="w-[100%] focus:border-[#999] focus:border-[2px] outline-none duration-100 h-[50px] px-[20px] mt-[20px] border-[1px] border-[#6669] rounded-[12px]"/>
-                    {errors.name && (<p className="text-[#f00]">Usename is required</p>)}
-                    <input type="email" {...register("user", {required: true})} name="user" placeholder="Email..." className="w-[100%] focus:border-[#999] focus:border-[2px] outline-none duration-100 h-[50px] px-[20px] mt-[20px] border-[1px] border-[#6669] rounded-[12px]"/>
-                    {errors.user && (<p className="text-[#f00]">Email is required</p>)}
-                    <input type="password" {...register("pass", {required: true})} name="pass" placeholder="Password..." className="w-[100%] focus:border-[#999] focus:border-[2px] outline-none duration-100 h-[50px] px-[20px] mt-[20px] border-[1px] border-[#6669] rounded-[12px]"/>
-                    {errors.pass && (<p className="text-[#f00]">Password is required</p>)}
-                    <input type="text" {...register("rol", {required: true})} name="rol" placeholder="Rol..." className="w-[100%] focus:border-[#999] focus:border-[2px] outline-none duration-100 h-[50px] px-[20px] mt-[20px] border-[1px] border-[#6669] rounded-[12px]"/>
-                    {errors.rol && (<p className="text-[#f00]">Rol is required</p>)}
+                <form onSubmit={onSubmit} className="w-[100%] register">
+                    <div className="floating-label w-[100%] h-[53px] mt-[20px]">
+                       <input type="text"  {...register("name", {required: true})} name="name" className="font-[Poppins] pt-[4px] w-[500px] h-[53px]" id="email"  placeholder=" "/>
+                       <label htmlFor="email" className="font-[Poppins]">Nombre</label>
+                    </div>
+                    {errors.name && (<p className="text-[#f00] mt-[3px] flex items-center gap-[3px]">
+                           <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#f00"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                           <p className="font-[Poppins] text-[14px]">Usename is required</p> 
+                            
+                    </p>)}
+                    <div className="floating-label w-[100%] h-[53px] mt-[20px]">
+                        <input type="email"  {...register("user", {required: true})} name="user" className="font-[Poppins] pt-[4px] w-[500px] h-[53px]" id="email"  placeholder=" "/>
+                        <label htmlFor="email" className="font-[Poppins]">Email</label>
+                    </div>
+                    {errors.user && (<p className="text-[#f00] mt-[3px] flex items-center gap-[3px]">
+                           <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#f00"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                           <p className="font-[Poppins] text-[14px]">Email is required</p> 
+                            
+                    </p>)}
+                    <div className="floating-label w-[100%] h-[53px] mt-[20px]">
+                        <input type="password"  {...register("pass", {required: true})} name="pass" className="font-[Poppins] pt-[4px] w-[500px] h-[53px]" id="email"  placeholder=" "/>
+                        <label htmlFor="password" className="font-[Poppins]">Password</label>
+                    </div>
+                    {errors.pass && (<p className="text-[#f00] mt-[3px] flex items-center gap-[3px]">
+                           <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#f00"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                           <p className="font-[Poppins] text-[14px]">Password is required</p> 
+                            
+                    </p>)}
                     <button type="submit" className="h-[47px] bg-[#0056B3] hover:bg-[#004494] duration-150 rounded-[12px] text-[#fff] text-[17px] font-[600] w-[100%] flex justify-center items-center mt-[10px]">Continuar</button>
                 </form>
                 <Link className="underline text-[#333] text-[15px] mt-[37px] font-[400]">¿Olvidaste la contraseña?</Link>

@@ -8,7 +8,7 @@ const query = promisify(connection.query).bind(connection);
 
 export const register = async (req, res) => {
     try {
-        const { user, name, rol, pass } = req.body;
+        const { user, name, pass } = req.body;
 
         const [rows] = await query(
             'SELECT * FROM users WHERE user = ? LIMIT 1',
@@ -20,7 +20,7 @@ export const register = async (req, res) => {
           }
 
 
-        if (!user || !name || !rol || !pass) {
+        if (!user || !name || !pass) {
             return res.status(400).json(["Todos los campos son obligatorios" ]);
         }
 
@@ -35,7 +35,7 @@ export const register = async (req, res) => {
         const passwordHash = await bcryptjs.hash(pass, 8);
 
         // 🔹 **3. Insertar el nuevo usuario en la BD**
-        const result = await query('INSERT INTO users SET ?', { user, name, rol, pass: passwordHash });
+        const result = await query('INSERT INTO users SET ?', { user, name, pass: passwordHash });
 
         console.log("Usuario registrado exitosamente");
 
@@ -45,13 +45,12 @@ export const register = async (req, res) => {
         const token = await createAccessToken({ id: userData });
 
         // 🔹 **5. Enviar respuesta con token**
-        res.cookie('token', token, { httpOnly: true, sameSite: 'Strict' });
+        res.cookie('token', token, { httpOnly: true, sameSite: 'Lax',  secure: false, });
 
         return res.json({
             message: "Usuario registrado con éxito",
             email: user,
-            name: name,
-            rol: rol
+            name: name
         });
 
     } catch (error) {
@@ -68,7 +67,7 @@ export const login = async (req, res) => {
             return res.status(400).json({ message: "Ingrese un usuario y una contraseña" });
         }
 
-        // Buscar usuario en la base de datos (LIMIT 1 para evitar múltiples coincidencias)
+        // Buscar usuario en la base de datos
         const results = await query('SELECT * FROM users WHERE user = ? LIMIT 1', [user]);
 
         if (results.length === 0) {
@@ -79,20 +78,23 @@ export const login = async (req, res) => {
 
         console.log("Usuario encontrado:", userData);
 
-        // Comparar la contraseña con el hash almacenado en la base de datos
+        // Comparar la contraseña
         const validPassword = await bcryptjs.compare(pass, userData.pass);
 
         if (!validPassword) {
             return res.status(401).json({ message: "Correo o contraseña incorrectos" });
         }
 
-        // Generar token con el ID real del usuario
-        const token = await createAccessToken({ id: userData.id });
+        // Si es el admin, agregamos isAdmin: true
+        // const isAdmin = user === 'israelcastro2025@gmail.com';
 
-        // Configurar cookie con el token (httpOnly para seguridad)
-        res.cookie('token', token, { httpOnly: true, sameSite: 'Strict' });
+        // Generar token
+        const token = await createAccessToken({ id: userData.id});
 
-        return res.json({ message: "Inicio de sesión exitoso", email: user });
+        // Configurar cookie con el token
+        res.cookie('token', token, { httpOnly: true, sameSite: 'Lax',  secure: false });
+
+        return res.json({ message: "Inicio de sesión exitoso", email: user});
 
     } catch (error) {
         console.error("Error en login:", error);

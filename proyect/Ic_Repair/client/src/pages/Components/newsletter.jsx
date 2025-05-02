@@ -1,16 +1,28 @@
 export function Newsletter(){
     return (
-        <div className="pt-[90px] mt-[50px] bg-[#FFF9DB] pb-[90px] flex justify-center flex-col items-center">
+        <div className="pt-[90px] mt-[50px] bg-[#6c5ce7] mx-[60px] rounded-[13px] pb-[90px] flex justify-center flex-col items-center">
                            <div className="flex flex-col justify-center items-center">
-                               <h4 className="font-[700] font-[Poppins] text-[33px] text-[#]">Suscribete a nuestro</h4>
-                               <h4  className="font-[800] font-[Poppins] text-[52px]">NEWSLETTER</h4>
+                               <h4 className="font-[800] font-[Poppins] text-center w-[70%] text-[40px] text-[#]">Suscribete a nuestro Newslatter</h4>
+                               {/* <h4  className="font-[800] font-[Poppins] text-[52px]">NEWSLETTER</h4> */}
                            </div>
                            <p className="font-[Poppins] mt-[15px]">Recibe un email con las nuevas noticias de En vida de las gallinas</p>
-                           <div className="flex gap-[13px] items-center mt-[15px]">
-                              <input type="text" placeholder="Ej: prueba@email.com" className="w-[500px] focus:border-[#999] focus:border-[2px] outline-none duration-100 px-[20px] border-[1px] border-[#5559] rounded-[10px] h-[50px]"/>
-                              <button className="bg-[#ffd700] duration-200 hover:bg-[#f90] font-[Poppins] font-[600] text-[#fff] rounded-[10px] h-[50px] px-[30px]">Me inscribo</button>
+                           <div className="flex gap-[10px] items-center mt-[15px]">
+                           <div className="floating-label w-[500px] h-[53px]">
+            <input
+              type="text"
+              className="font-[Poppins] pt-[4px] w-[500px] h-[53px]"
+             
+              id="email"
+              placeholder=" "
+            />
+            <label htmlFor="email" className="font-[Poppins]">
+              Email
+            </label>
+          </div>
+                              {/* <input type="text" placeholder="Correo electronico" className="w-[450px] placeholder:text-[#111] placeholder:font-[Poppins] outline-none focus:border-[#999] hover:bg-blue-100/50 focus:border-[1px] duration-[200ms] px-[20px] border-[1px] border-[#5559] rounded-[7px] h-[50px]"/> */}
+                              <button className="bg-[#111] duration-300 hover:bg-[#444] text-[16px] font-[Poppins] font-[600] text-[#fff] rounded-[7px] h-[53px] px-[25px]">Me inscribo</button>
                            </div>
-                           <p className="mt-[15px] text-[13px]">Al registrar tu dirección de email, reconoces haber leído y aceptas la política de privacidad de ¡HOLA!</p>
+                           <p className="mt-[15px] text-[13px]">Al registrar tu dirección de email, reconoces haber leído y aceptas la política de privacidad de EVG 2</p>
         </div>
     )
 }

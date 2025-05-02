@@ -20,8 +20,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const corsOptions = {
     origin: 'http://localhost:5173',
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'DELETE', 'PUT'],
     allowedHeaders: ['Content-Type'],
+    credentials: true
 };  
 
 // ---------------- uses
@@ -41,10 +42,6 @@ app.use(cookieParser())
 app.use('/api', authRoutes)
 app.use('/api', taskRoutes)
 app.use('/api', blogRoutes)
-
-
-
-  
 
 
 dotenv.config({ path: './env/.env' });

@@ -61,8 +61,8 @@ export function Galeria(){
                       <footer className="flex px-[25px] mt-[50px] py-[15px] w-[100%] justify-between">
                 <div className="font-[Poppins] text-[14px] text-[#999] font-[400]">©2025 EVG</div>
                 <div className="flex gap-[15px]">
-                     <Link className="font-[Poppins] text-[14px] text-[#999] font-[400]">Terminos</Link>
-                     <Link className="font-[Poppins] text-[14px] text-[#999] font-[400]">Privacidad</Link>
+                     <Link to="/terms-of-use" className="font-[Poppins] text-[14px] text-[#999] font-[400]">Terminos</Link>
+                     <Link to="/privacy-policies" className="font-[Poppins] text-[14px] text-[#999] font-[400]">Privacidad</Link>
                 </div>
              </footer>
                 </div>

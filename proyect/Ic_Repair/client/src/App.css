@@ -1,0 +1,35 @@
+.floating-label {
+    position: relative;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .floating-label input {
+    width: 100%;
+    padding: 1.2rem 1rem 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  .floating-label label {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: white;
+    padding: 0 0.25rem;
+    color: #888;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  .floating-label input:focus + label,
+  .floating-label input:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+    color: #3b82f6; /* azul bonito */
+  }

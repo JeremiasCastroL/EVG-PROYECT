@@ -5,8 +5,8 @@ import { Sequelize } from 'sequelize';
 import Blog from '../models/blog.model.js'; // Solo importa el modelo
 
 const sequelize = new Sequelize('login_node_evg', 'root', '', {
-    host: 'localhost',
-    dialect: 'mysql'
+  host: 'localhost',
+  dialect: 'mysql'
 });
 
 
@@ -38,4 +38,26 @@ export const adminblog = async (req, res) => {
     res.status(500).json({ error: "Error al crear el blog" });
   }
 };
+
+export const getBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.findAll({ order: [['date', 'DESC']] });
+    // const [rows] = await db.query('SELECT * FROM blogs ORDER BY created_at DESC');
+    res.json(blogs);
+    console.log(blogs)
+  } catch (err) {
+    res.json(err)
+    console.log("getBlog error", err)
+  }
+}
+
+export const deleteBlogs = async (req, res) => {
+  try {
+    const {id} = req.params 
+      const deleteBlog = await Blog.destroy({where: {id}})
+       res.status(200).json({xd:"Blog eliminado correctamente"})
+    } catch (error) {
+        res.status(400).json({xdxd:"Error en delete blog"})
+  }
+}
 
