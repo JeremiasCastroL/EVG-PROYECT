@@ -89,7 +89,6 @@ export function EditReview() {
             try {
                 const res = getReview.data; // Suponiendo que esto retorna todos los videos
                 console.log(res)
-                // const videos = res.data; // Aquí están todos los videos
                 const reviewFiltrado = res.find((v) => v.id === parseInt(author)); // Busca por author
                 if (reviewFiltrado) {
                     setReview(reviewFiltrado);

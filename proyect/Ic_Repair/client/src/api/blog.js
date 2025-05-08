@@ -9,3 +9,9 @@ export const deleteRequest = id => axios.delete(`${ADMIN}/public/${id}`);
 
 export const getRequest = await axios.get(`${API}/admin`,  { withCredentials: true })
 
+export const putBlog = (id, formData) => axios.put(`${ADMIN}/blog/${id}`, formData, {
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
+

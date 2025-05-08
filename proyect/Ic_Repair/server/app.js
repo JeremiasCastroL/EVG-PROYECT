@@ -10,6 +10,7 @@ import cookieParser from 'cookie-parser';
 import taskRoutes from './routes/task.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import blogRoutes from './routes/admin.routes.js';
+import termRoutes from './routes/terms&privacy.routes.js'
 // import { adminblog } from './controllers/admin.controller.js';
 
 const app = express();
@@ -42,6 +43,7 @@ app.use(cookieParser())
 app.use('/api', authRoutes)
 app.use('/api', taskRoutes)
 app.use('/api', blogRoutes)
+app.use('/api', termRoutes)
 
 
 dotenv.config({ path: './env/.env' });

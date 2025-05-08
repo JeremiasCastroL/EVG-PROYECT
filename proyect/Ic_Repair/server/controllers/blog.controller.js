@@ -53,11 +53,41 @@ export const getBlogs = async (req, res) => {
 
 export const deleteBlogs = async (req, res) => {
   try {
-    const {id} = req.params 
-      const deleteBlog = await Blog.destroy({where: {id}})
-       res.status(200).json({xd:"Blog eliminado correctamente"})
-    } catch (error) {
-        res.status(400).json({xdxd:"Error en delete blog"})
+    const { id } = req.params
+    const deleteBlog = await Blog.destroy({ where: { id } })
+    res.status(200).json({ xd: "Blog eliminado correctamente" })
+  } catch (error) {
+    res.status(400).json({ xdxd: "Error en delete blog" })
   }
 }
 
+export const updateBlog = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { title, content, category, date } = req.body
+
+    if (!req.file) {
+      return res.status(400).json({ error: "Imagen no proporcionada" })
+    }
+    const imageName = req.file.filename
+
+    const parsedDate = new Date(date)
+    if (isNaN(parsedDate.getTime())) {
+      return res.status(400).json({ errorDate: "Fecha invalida" })
+    }
+
+    const updatedBlog = await Blog.update(
+      {
+        title,
+        content,
+        category,
+        date: parsedDate,
+        image: imageName
+      }, { where: { id } })
+
+    res.status(200).json({ successfully: "Blog actualizado éxitosamente" })
+  } catch (err) {
+    res.status(400).json({ error: "Error al actualizar el blog" })
+  }
+
+}

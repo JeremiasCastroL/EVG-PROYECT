@@ -8,8 +8,8 @@ export function BoxBlogRow({classImage, blogId, blogImage, blogTitle, blogConten
                 className={`object-cover h-[100%] w-[100%] transition-transform duration-300 hover:scale-105`}
             />
         </div>
-        <h4 className="font-[Poppins] w-[28%] font-[600] px-[14px] text-[16px]">{blogTitle}</h4>
-        <p className="font-[Poppins] w-[30%] px-[10px] text-[13px] line-clamp-3">{blogContent}</p>
+        <h4 className="font-[Poppins] w-[28%] font-[600] px-[14px] text-[16px] overflow-hidden line-clamp-2 text-wrap text-ellipsis">{blogTitle}</h4>
+        <p className="font-[Poppins] w-[30%] px-[10px] text-[13px] line-clamp-3 overflow-hidden">{blogContent}</p>
         <div className="font-[Poppins] w-[17%] flex items-center text-[14px] mt-[6px] px-[0px]">
             <p className="text-[22px] text-[#ffd700]"> ● </p>
             <p>{blogDate}</p>

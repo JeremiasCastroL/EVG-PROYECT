@@ -14,6 +14,13 @@ export function IndexCanal() {
     const [showModal, setShowModal] = useState(false);
     const [selectedReview, setSelectedReview] = useState(null)
     const [showModal2, setShowModal2] = useState(false);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage2, setCurrentPage2] = useState(0);
+
+    const blogsPerPage = 4;
+    const totalPages = Math.ceil(video.length / blogsPerPage);
+    const reviewPerPage = 4;
+    const totalPages2 = Math.ceil(review.length / reviewPerPage)
 
     const openModal = (video) => {
         setSelectedVideo(video);
@@ -59,6 +66,33 @@ export function IndexCanal() {
     }, []);
 
     console.log("xdxddd", canal, video, review)
+
+    const paginatedBlogs = video.slice(
+        currentPage * blogsPerPage,
+        (currentPage + 1) * blogsPerPage
+    );
+
+    const goPrev = () => {
+        if (currentPage > 0) setCurrentPage(currentPage - 1);
+    };
+
+    const goNext = () => {
+        if (currentPage < totalPages - 1) setCurrentPage(currentPage + 1);
+    };
+
+    const paginatedBlogs2 = review.slice(
+        currentPage2 * reviewPerPage,
+        (currentPage2 + 1) * reviewPerPage
+    )
+
+    const goPrev2 = () => {
+       if (currentPage2 > 0) setCurrentPage2(currentPage2 - 1);
+    }
+
+    const goNext2 = () => {
+        if ( currentPage2 < totalPages2 - 1) setCurrentPage2(currentPage2 + 1)
+    }
+
 
 
 
@@ -111,10 +145,10 @@ export function IndexCanal() {
                                     Subir nuevo video
                                 </p>
                             </Link>
-                            {video.length === 0 ? (
+                            {paginatedBlogs.length === 0 ? (
                                 <p>No hay blogs disponibles.</p>
                             ) : (
-                                video.map((video) => (
+                                paginatedBlogs.map((video) => (
                                     <div key={video.id} className="flex font-[Poppins] w-[100%] items-center gap-[13px]">
                                         {/* <div className="flex justify-center"> */}
                                         <img src={`http://localhost:3000/uploads/portadas/${video.image}`} alt="" className="w-[26%] h-[80px] rounded-[9px] object-cover" />
@@ -136,6 +170,13 @@ export function IndexCanal() {
                                     </div>
 
                                 ))
+                            )}
+                            {video.length > blogsPerPage && (
+                                <div className="flex justify-between items-center mt-[10px]">
+                                    <button onClick={goPrev} disabled={currentPage === 0} className="duration-300 text-[18px] px-3 py-1 bg-[#ddd] rounded hover:bg-[#ccc] disabled:opacity-40">←</button>
+                                    <span className="text-[15px] text-gray-600">Página {currentPage + 1} / {totalPages}</span>
+                                    <button onClick={goNext} disabled={currentPage === totalPages - 1} className="duration-300 text-[18px] px-3 py-1 bg-[#ddd] rounded hover:bg-[#ccc] disabled:opacity-40">→</button>
+                                </div>
                             )}
                             {showModal && selectedVideo && (
                                 <div className="fixed font-[Poppins] inset-0 flex items-center justify-center z-50">
@@ -191,10 +232,10 @@ export function IndexCanal() {
                                     Agregar nueva reseña
                                 </p>
                             </Link>
-                            {review.length === 0 ? (
+                            {paginatedBlogs2.length === 0 ? (
                                 <p>No hay blogs disponibles.</p>
                             ) : (
-                                review.map((review) => (
+                                paginatedBlogs2.map((review) => (
                                     <div key={review.id} className="flex font-[Poppins] w-[100%] items-center gap-[13px]">
                                         <img src={`http://localhost:3000/uploads/portadas/${review.image}`} alt="" className="w-[85px] h-[85px] rounded-[9px] object-cover" />
                                         <h4 className="font-[600] w-[25%] text-[17px]">{review.author}</h4>
@@ -215,6 +256,13 @@ export function IndexCanal() {
                                         </div>
                                     </div>
                                 ))
+                            )}
+                            {review.length > reviewPerPage && (
+                                <div className="flex justify-between items-center mt-[10px]">
+                                    <button onClick={goPrev2} disabled={currentPage2 === 0} className="duration-300 text-[18px] px-3 py-1 bg-[#ddd] rounded hover:bg-[#ccc] disabled:opacity-40">←</button>
+                                    <span className="text-[15px] text-gray-600">Página {currentPage2 + 1} / {totalPages2}</span>
+                                    <button onClick={goNext2} disabled={currentPage2 === totalPages2 - 1} className="duration-300 text-[18px] px-3 py-1 bg-[#ddd] rounded hover:bg-[#ccc] disabled:opacity-40">→</button>
+                                </div>
                             )}
                             {showModal2 && selectedReview && (
                                 <div className="fixed font-[Poppins] inset-0 flex items-center justify-center z-50">

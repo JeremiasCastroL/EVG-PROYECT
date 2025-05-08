@@ -22,6 +22,8 @@ import { deleteVideo } from '../controllers/channel.controller.js'
 import { deleteReview } from '../controllers/channel.controller.js'
 import { updateVideo } from '../controllers/channel.controller.js'
 import { updateReview } from '../controllers/channel.controller.js'
+import { updateBlog } from '../controllers/blog.controller.js'
+
 
 // router.post('/admin/blog', adminblog)
 router.post('/admin/blog', upload.single('image'), adminblog);
@@ -42,6 +44,7 @@ router.put("/admin/canal/video/:id", upload.fields([
   { name: "image", maxCount: 1 },
 ]),updateVideo)
 router.put("/admin/canal/review/:id", upload.single('image'), updateReview)
+router.put("/admin/blog/:id", upload.single('image'), updateBlog)
 // router.get('/admin', (req, res) => {
 //     res.json({ message: 'Bienvenido al panel de administración' });
 // })

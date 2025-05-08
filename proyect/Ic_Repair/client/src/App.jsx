@@ -23,6 +23,9 @@ import { IndexCanal } from './pages/Admin/SectionCanal/SectionIndex.jsx';
 import { EditReview } from './pages/Admin/SectionCanal/SectionEditReview.jsx';
 import { EditVideo } from './pages/Admin/SectionCanal/SectionEditVideo.jsx';
 import { AdminHome } from './pages/Admin/SectionHome/SectionAdmHome.jsx';
+import { EditBlog } from './pages/Admin/SectionBlog/SectionEditBlog.jsx';
+import { AdminTerms } from './pages/Admin/SectionAdminTerms.jsx';
+import { AdminPrivacy } from './pages/Admin/SectionAdminPrivacy.jsx';
 
 function App() {
   return (
@@ -46,7 +49,10 @@ function App() {
               <Route path="blog" element={<AdminBlog />} />
               <Route path="public" element={<AdminPublic />} />
               <Route path="canal" element={<AdminCanal />} />
+              <Route path="blog/:id" element={<EditBlog />} />
               <Route path="home" element={<AdminHome />} />
+              <Route path="terms-of-use" element={<AdminTerms/>}/>
+              <Route path="privacy-policies" element={<AdminPrivacy/>}/>
               <Route path="/admin/canal" element={<AdminCanal />}>
                 <Route index element={<IndexCanal />} />
                 <Route path="PostReview" element={<PostReview />} />

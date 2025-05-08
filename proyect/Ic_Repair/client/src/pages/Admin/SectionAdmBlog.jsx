@@ -79,15 +79,15 @@ export function AdminBlog() {
   return (
     <section className="pt-[100px] relative">
       <div className="px-[140px]">
-              <div className="px-[0px] flex mt-[20px] gap-[10px] items-center">
-                        <Link to="/" className="font-[Poppins] text-[#111] text-[14px]">Home</Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
-                        <Link to="/admin" className="font-[Poppins] text-[#111] text-[14px]">Admin</Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
-                        <Link to="/admin/public" className="font-[Poppins] text-[#111] text-[14px]">Publicar</Link>  
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
-                        <Link to="" className="font-[Poppins] text-[#111] text-[14px]">Blog</Link>   
-                    </div>
+        <div className="px-[0px] flex mt-[20px] gap-[10px] items-center">
+          <Link to="/" className="font-[Poppins] text-[#111] text-[14px]">Home</Link>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" /></svg>
+          <Link to="/admin" className="font-[Poppins] text-[#111] text-[14px]">Admin</Link>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" /></svg>
+          <Link to="/admin/public" className="font-[Poppins] text-[#111] text-[14px]">Publicar</Link>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" /></svg>
+          <Link to="" className="font-[Poppins] text-[#111] text-[14px]">Blog</Link>
+        </div>
 
         <div className="mt-[50px] mb-[50px] flex flex-col items-center">
           <h4 className="w-[100%] text-[34px] text-center font-[Poppins] font-[600]">
@@ -103,9 +103,8 @@ export function AdminBlog() {
                   value={formValues.title}
                   onChange={handleChange}
                   placeholder="Ejemplo: 'Consejos para cuidar a tus gallinas'"
-                  className={`h-[60px] w-[100%] px-[25px] rounded-[10px] border-[#999] border-[1px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${
-                    formValues.title ? 'bg-blue-100' : 'bg-white'
-                  }`}
+                  className={`h-[60px] w-[100%] px-[25px] rounded-[10px] border-[#999] border-[1px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${formValues.title ? 'bg-blue-100' : 'bg-white'
+                    }`}
                   required
                 />
               </div>
@@ -113,16 +112,15 @@ export function AdminBlog() {
               <div className="flex flex-col gap-[10px] mt-[30px]">
                 <h5 className="font-[Poppins]">Contenido del blog</h5>
                 <textarea
-                onInput={handleInput}
-                rows={1}
+                  onInput={handleInput}
+                  rows={1}
                   name="content"
                   type="text"
                   value={formValues.content}
                   onChange={handleChange}
                   placeholder="Ejemplo: 'La alimentación es la razón principal...'"
-                  className={`min-h-[100px] focus:outline-[#888] focus:outline-[1px] w-[100%] flex py-[20px] px-[25px] border-[#999] border-[1px] rounded-[10px] transition-all duration-200 ${
-                    formValues.content ? 'bg-blue-100' : 'bg-white'
-                  }`}
+                  className={`min-h-[100px] focus:outline-[#888] focus:outline-[1px] w-[100%] flex py-[20px] px-[25px] border-[#999] border-[1px] rounded-[10px] transition-all duration-200 ${formValues.content ? 'bg-blue-100' : 'bg-white'
+                    }`}
                   required
                 />
               </div>
@@ -134,16 +132,16 @@ export function AdminBlog() {
                   type="text"
                   value={formValues.category}
                   onChange={handleChange}
-                  className={`h-[60px] w-[100%] px-[25px] border-[1px] border-[#999] rounded-[10px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${
-                    formValues.category ? 'bg-blue-100' : 'bg-white '
-                  }`}
+                  className={`h-[60px] w-[100%] px-[25px] border-[1px] border-[#999] rounded-[10px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${formValues.category ? 'bg-blue-100' : 'bg-white '
+                    }`}
                   required
                 >
-                    <option value="Alimentacion">Alimentación</option>
-                    <option value="Gallineros">Gallineros</option>
-                    <option value="Razas">Razas</option>
-                    <option value="Consejos">Consejos</option>
-                    <option value="Reproducción">Reproducción</option>
+                  <option value="">Selecciona una categoría</option>
+                  <option value="Alimentación">Alimentación</option>
+                  <option value="Gallineros">Gallineros</option>
+                  <option value="Razas">Razas</option>
+                  <option value="Consejos">Consejos</option>
+                  <option value="Reproducción">Reproducción</option>
                 </select>
               </div>
 
@@ -165,9 +163,8 @@ export function AdminBlog() {
                   name="date"
                   value={formValues.date}
                   onChange={handleChange}
-                  className={`h-[60px] w-[100%] px-[17px] rounded-[10px] border-[#999] border-[1px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${
-                    formValues.date ? 'bg-blue-100' : 'bg-white'
-                  }`}
+                  className={`h-[60px] w-[100%] px-[17px] rounded-[10px] border-[#999] border-[1px] transition-all duration-200 focus:outline-[#888] focus:outline-[1px] ${formValues.date ? 'bg-blue-100' : 'bg-white'
+                    }`}
                   required
                 />
               </div>

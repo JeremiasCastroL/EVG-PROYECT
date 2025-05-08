@@ -125,7 +125,7 @@ export const deleteReview = async (req, res) => {
 export const updateVideo = async (req, res) => {
   try {
     const { id } = req.params
-    const {title, description, date} = req.body
+    const { title, description, date } = req.body
 
     const videoName = req.files.video[0].filename;
     const imageName = req.files.image[0].filename;
@@ -141,7 +141,7 @@ export const updateVideo = async (req, res) => {
       video: videoName,
       image: imageName,
       date: parsedDate,
-    }, {where: {id}});
+    }, { where: { id } });
 
     res.status(200).json({ video: "El video fue actualizado exitosamente." })
   } catch (err) {

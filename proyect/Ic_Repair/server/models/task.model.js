@@ -1,5 +1,4 @@
 import { Sequelize, DataTypes } from 'sequelize';
-console.log("xdxdxd")
 // Conectar a MySQL
 const sequelize = new Sequelize('login_node_evg', 'root', '', {
     host: 'localhost',
